@@ -1,20 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet,TouchableOpacity, Text, View,Image } from 'react-native';
+import {Homepage} from './components/Homepage';
 
-export default function App() {
+import { AntDesign } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { Book } from './components/Booking';
+
+export default function App() { 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <StatusBar style="auto" /> 
+      <Book/>
+      {/* <Homepage/> */}
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#00323D',
   },
 });
