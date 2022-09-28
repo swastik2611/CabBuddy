@@ -9,7 +9,7 @@ export const Book=()=> {
     <>
       <View style={{backgroundColor:'#fff',flex:1}}>
       <View style={styles.locate}>
-        <View style={{marginTop:10}}>
+        <View style={{marginTop:-40,marginBottom:0}}>
           <Ionicons name="md-reorder-three-sharp" size={40} color="black" />
         </View>
         <View style={styles.align}>
@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     backgroundColor:'white',
     marginHorizontal:60,
-    marginVertical:20,
+    marginVertical:10,
+    marginBottom:10,
     padding:12,
     borderRadius:7,
     fontSize:25,

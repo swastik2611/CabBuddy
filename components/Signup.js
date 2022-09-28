@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet,TouchableOpacity, Text,TextInput, View,Image } from 'react-native';
+import { getLocaleDirection } from "react-native-web/dist/cjs/modules/useLocale";
  export const Signup =()=>{
     return(
         <>
@@ -13,29 +14,29 @@ import { StyleSheet,TouchableOpacity, Text,TextInput, View,Image } from 'react-n
                 </View>
             </View>    
             <View  style={styles.bottom}>
-                <View style={styles.inpbox}>
+                <View style={{flex:0.70}}>
+                    <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Name</Text>
                     <TextInput style={styles.txtinp}/>
-                </View>
-                <View style={styles.inpbox}>
+                    </View>
+                    <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Email</Text>
                     <TextInput style={styles.txtinp}/>
-                </View>
-                <View style={styles.inpbox}>
+                    </View>
+                    <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Password</Text>
                     <TextInput style={styles.txtinp}/>
-                </View>
-                <View style={styles.inpbox}>
+                    </View>
+                    <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Confirm Password</Text>
                     <TextInput style={styles.txtinp}/>
+                    </View>
                 </View>
-                <View>
                 <View style={styles.submit}>
                     <TouchableOpacity style={styles.submitbtn}>
                         <Text style={styles.submittxt}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
             </View>
         </View>
         </>
@@ -51,7 +52,7 @@ import { StyleSheet,TouchableOpacity, Text,TextInput, View,Image } from 'react-n
     marginTop:30,
   },
   middle:{
-    flex:0.1,
+    flex:0.075,
   },
   img:{
     flex:1,
@@ -67,15 +68,16 @@ import { StyleSheet,TouchableOpacity, Text,TextInput, View,Image } from 'react-n
     fontSize:32,
   },
   bottom:{
-    flex:0.5,
+    flex:0.525,
   },
   inpbox:{
    marginHorizontal:'8%',
-   marginVertical:'1%',
+   marginVertical:'2%',
   },
   fieldname:{
     fontSize:20,
-    marginVertical:'1%',
+    fontWeight:'600',
+    marginVertical:'0.5%',
   },
   txtinp:{
     backgroundColor:'white',
@@ -83,19 +85,18 @@ import { StyleSheet,TouchableOpacity, Text,TextInput, View,Image } from 'react-n
     padding:'1%',
   },
   submit:{
+    alignItems:'center',
     justifyContent:"center",
-    marginTop:'3%',
+    flex:0.30,
   },
+  
   submitbtn:{
     backgroundColor:'black',
-    marginHorizontal:'25%',
-    marginTop:'5%',
     borderRadius:40,
   },
-  submittxt:{
-    textAlign:"center",
+  submittxt:{  
     justifyContent:"center",
-    paddingVertical:'8%',
+    paddingVertical:'2.5%',
     paddingHorizontal:'10%',
     fontSize:20,
     color:'white',
