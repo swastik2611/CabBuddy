@@ -2,10 +2,14 @@ import React from 'react';
 import { render } from 'react-dom';
 import { StyleSheet,TouchableOpacity, Text, View,Image } from 'react-native';
 
-export const Homepage =()=>  { 
-  return (
+export const Homepage =({navigation})=>  { 
+  onButtonPress=()=>{
+    navigation.navigate("Signup")
+  };
+  return ( 
     <>
-      <View style={styles.top}>
+    <View style={styles.container}>
+        <View style={styles.top}>
         <Image style={styles.img} source={require('../assets/homepage/cab.jpeg')}/>
       </View>
       <View style={styles.middle}>
@@ -17,17 +21,23 @@ export const Homepage =()=>  {
         <TouchableOpacity style={styles.btns}>
           <Text style={styles.btn}>Sign In</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.onButtonPress}>
           <Text style={styles.btn}>Sign Up</Text>
         </TouchableOpacity>
       </View>
+
+    </View>
     </>
   );
 };
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#00323D',
+  },
   top:{
     flex:0.45,
-    marginTop:30,    
+    marginTop:'7%',    
   },
   img: {
     flex: 1,
@@ -36,18 +46,18 @@ const styles = StyleSheet.create({
     resizeMode: 'cover'
   },
   middle:{
-    marginTop:10,
+    marginTop:'5%',
     flex:0.25,
   },
   txt:{
-    paddingVertical:5,
+    paddingVertical:'1.5%',
     color:'white',
     fontSize:32,
     fontWeight:'bold',
     textAlign:'center',
   },
   tag:{
-    paddingTop:10,
+    paddingTop:'1.5%',
     color:'white',
     fontSize:16,
     fontWeight:"10",
@@ -55,12 +65,12 @@ const styles = StyleSheet.create({
   },
   bottom:{
     flex:0.35,
-    paddingTop:20,
+    paddingTop:'1%',
   },
   btn:{
     backgroundColor:'white',
-    marginHorizontal:120,
-    padding:10,
+    marginHorizontal:'25%',
+    padding:'2.5%',
     fontSize:32,
     fontWeight:'bold',
     textAlign:'center',
@@ -71,7 +81,7 @@ const styles = StyleSheet.create({
   btns:{
     justifyContent:'center',
     textAlign:'center',
-    paddingVertical:10,
-    marginBottom:10,
+    paddingVertical:'2.5%',
+    marginBottom:'3.5%',
   }
 });

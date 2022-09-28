@@ -17,11 +17,16 @@ import { getLocaleDirection } from "react-native-web/dist/cjs/modules/useLocale"
                 <View style={{flex:0.70}}>
                     <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Name</Text>
-                    <TextInput style={styles.txtinp}/>
+                    <View style={{flexDirection:'row',justifyContent:'space-between',}}>
+                      <TextInput style={[styles.txtinp,styles.txtnm]} placeholder='First'/>
+                      <TextInput style={[styles.txtinp,styles.txtnm]} placeholder='Last'/>
+                    </View>
                     </View>
                     <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Email</Text>
-                    <TextInput style={styles.txtinp}/>
+                    <TextInput style={styles.txtinp}
+                    placeholder=" xyz@mail.jiit.ac.in"
+                    />
                     </View>
                     <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Password</Text>
@@ -81,15 +86,20 @@ import { getLocaleDirection } from "react-native-web/dist/cjs/modules/useLocale"
   },
   txtinp:{
     backgroundColor:'white',
-    borderRadius:10,
-    padding:'1%',
+    height:40,
+    borderRadius:20,
+    paddingVertical:'1%',
+    paddingLeft:'5%',
+    fontSize:20,
+  },
+  txtnm:{
+    flex:0.45,
   },
   submit:{
     alignItems:'center',
     justifyContent:"center",
     flex:0.30,
   },
-  
   submitbtn:{
     backgroundColor:'black',
     borderRadius:40,
