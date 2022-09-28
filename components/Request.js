@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { StyleSheet,TouchableOpacity, Text, View,Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
@@ -7,7 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 export const Book=()=> { 
   return (
     <>
-      <View style={{backgroundColor:'#ccc',flex:1}}>
+      <View style={{backgroundColor:'#fff',flex:1}}>
       <View style={styles.locate}>
         <View style={{marginTop:10}}>
           <Ionicons name="md-reorder-three-sharp" size={40} color="black" />
@@ -31,7 +31,25 @@ export const Book=()=> {
           </Text>
         </View>
       </View>
+      <View style={styles.bottom}>
+      <View style={styles.imgctr}>
+        <Image style={styles.img} source={require('../assets/booking/map.png')}/>
       </View>
+      <View style={styles.btnctr}>
+         <TouchableOpacity style={styles.btn}>
+          <Text style={styles.btntxt}>
+            Request for Pooling
+          </Text>
+        </TouchableOpacity>
+         <TouchableOpacity style={styles.btn}>
+          <Text style={styles.btntxt}>
+            Invite for Pooling
+          </Text>
+        </TouchableOpacity>
+      </View>
+      </View>
+      </View>
+      <View/>
     </>
   );
 }
@@ -55,6 +73,36 @@ const styles = StyleSheet.create({
     borderWidth:1,
     bordercolor:'black',
   },
-  location:{
+  bottom:{
+  flex:0.75,
+  },
+  imgctr:{
+    flex:1,
+  },
+  img: {
+    flex:1,
+    width: null, 
+    height:null ,
+    resizeMode: 'cover',
+  },
+  btnctr:{
+    justifyContent:'center',
+    alignSelf:"center",
+    position:'absolute',
+    marginTop:"42%",
+  },
+  btn:{
+    paddingHorizontal:'10%',
+    paddingVertical:'5%',
+    backgroundColor:'white',
+    borderColor:'black',
+    borderWidth:3,
+    marginTop:'4%',
+    borderRadius:50,
+  },
+  btntxt:{
+     textAlign:'center',
+     fontWeight:'bold',
+     fontSize:26,
   },
 });
