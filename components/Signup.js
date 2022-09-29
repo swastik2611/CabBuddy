@@ -1,6 +1,5 @@
 import React from "react";
-import { StyleSheet,TouchableOpacity, Text,TextInput, View,Image } from 'react-native';
-import { getLocaleDirection } from "react-native-web/dist/cjs/modules/useLocale";
+import { StyleSheet,TouchableOpacity, Text,TextInput, View,Image, ScrollView } from 'react-native';
  export const Signup =()=>{
     return(
         <>
@@ -25,7 +24,7 @@ import { getLocaleDirection } from "react-native-web/dist/cjs/modules/useLocale"
                     <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Email</Text>
                     <TextInput style={styles.txtinp}
-                    placeholder=" xyz@mail.jiit.ac.in"
+                    placeholder="xyz@mail.jiit.ac.in"
                     />
                     </View>
                     <View style={styles.inpbox}>

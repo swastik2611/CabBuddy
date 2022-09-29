@@ -3,8 +3,11 @@ import { render } from 'react-dom';
 import { StyleSheet,TouchableOpacity, Text, View,Image } from 'react-native';
 
 export const Homepage =({navigation})=>  { 
-  onButtonPress=()=>{
+  onSignupPress=()=>{
     navigation.navigate("Signup")
+  };
+  onSigninPress=()=>{
+    navigation.navigate("Signin")
   };
   return ( 
     <>
@@ -18,10 +21,10 @@ export const Homepage =({navigation})=>  {
         <Text style={styles.tag}>Find your Travel Buddies</Text>
       </View>
       <View style={styles.bottom}>
-        <TouchableOpacity style={styles.btns}>
+        <TouchableOpacity style={styles.btns} onPress={this.onSigninPress}>
           <Text style={styles.btn}>Sign In</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.onButtonPress}>
+        <TouchableOpacity onPress={this.onSignupPress}>
           <Text style={styles.btn}>Sign Up</Text>
         </TouchableOpacity>
       </View>

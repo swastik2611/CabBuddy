@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {Homepage} from './components/Homepage';
 import { Request } from './components/Request';
 import { Signup } from './components/Signup';
+import { Signin } from './components/Signin';
 
 export default function App() { 
   const Stack = createNativeStackNavigator();
@@ -15,6 +16,7 @@ export default function App() {
       <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Homepage'>
         <Stack.Screen name="Homepage" component={Homepage}/>
         <Stack.Screen name="Signup" component={Signup}/>
+        <Stack.Screen name="Signin" component={Signin}/>
         <Stack.Screen name="Request" component={Request}/>
       </Stack.Navigator>
     </NavigationContainer>
