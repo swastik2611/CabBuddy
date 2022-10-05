@@ -8,29 +8,32 @@ import {Homepage} from './components/Homepage';
 import { Request } from './components/Request';
 import { Signup } from './components/Signup';
 import { Signin } from './components/Signin';
+import { Map } from './components/Map';
 
 export default function App() { 
   const Stack = createNativeStackNavigator();
   return (
-    <NavigationContainer style={styles.container}>
-      <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Homepage'>
-        <Stack.Screen name="Homepage" component={Homepage}/>
-        <Stack.Screen name="Signup" component={Signup}/>
-        <Stack.Screen name="Signin" component={Signin}/>
-        <Stack.Screen name="Request" component={Request}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-    // <View style={styles.container}>
-    //   <StatusBar style="auto" /> 
-    //   {/* <Homepage/> */}
-    //   {/* <Signup/>  */}
-    //   {/* <Request/> */}
-    // </View>
+    // <NavigationContainer style={styles.container}>
+    //   <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Homepage'>
+    //     <Stack.Screen name="Homepage" component={Homepage}/>
+    //     <Stack.Screen name="Signup" component={Signup}/>
+    //     <Stack.Screen name="Signin" component={Signin}/>
+    //     <Stack.Screen name="Request" component={Request}/>
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    <View style={styles.container}>
+      <StatusBar style="auto" /> 
+      {/* <Homepage/> */}
+      {/* <Map/> */}
+      {/* <Signin/> */}
+      {/* <Signup/>  */}
+      <Request/>
+    </View>
   );
 }
 const styles = StyleSheet.create({
   container:{
-flex:1,
-backgroundColor:'green',
+  flex:1,
+  backgroundColor:'green'
   }
 });

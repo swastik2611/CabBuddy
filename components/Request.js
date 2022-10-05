@@ -3,6 +3,7 @@ import { StyleSheet,TouchableOpacity, Text, View,Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { Map } from './Map';
 
 export const Request=()=> { 
   return (
@@ -33,7 +34,8 @@ export const Request=()=> {
       </View>
       <View style={styles.bottom}>
       <View style={styles.imgctr}>
-        <Image style={styles.img} source={require('../assets/booking/map.png')}/>
+        {/* <Image style={styles.img}  source={require('../assets/booking/map.png')}/> */}
+        <Map/>
       </View>
       <View style={styles.btnctr}>
          <TouchableOpacity style={styles.btn}>
