@@ -21,14 +21,14 @@ export default function App() {
     //     <Stack.Screen name="Request" component={Request}/>
     //   </Stack.Navigator>
     // </NavigationContainer>
-    <View style={styles.container}>
-      <StatusBar style="auto" /> 
-      {/* <Homepage/> */}
-      {/* <Map/> */}
-      {/* <Signin/> */}
-      {/* <Signup/>  */}
-      <Request/>
-    </View>
+    // <View style={styles.container}>
+    //   <StatusBar style="auto" /> 
+    //   <Homepage/>
+    //   {/* <Map/> */}
+    //   {/* <Signin/> */}
+    //   {/* <Signup/>  */}
+         <Request/> 
+    // </View>
   );
 }
 const styles = StyleSheet.create({

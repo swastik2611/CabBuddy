@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React,{useState} from 'react'
 import { StyleSheet,Text, View } from 'react-native'
 import {Callout, enableLatestRenderer, Marker} from 'react-native-maps';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-
+import Geolocation from 'react-native-geolocation-service';
 const DarkMode =
 [
   {
@@ -167,25 +167,32 @@ const DarkMode =
 ]
 enableLatestRenderer();
 export const Map=()=>  {
-    return (
+  const [lat,setLat]=useState()
+  const [lon,setLon]=useState()
+    Geolocation.getCurrentPosition(data=>{
+      setLat(data.coords.latitude)
+      setLon(data.coords.longitude)
+  })
+//28.51913338908017, 77.36525008259567 128
+//28.535670729456665, 77.36472530226712 pg
+     return (
       <>
       <View style={styles.container}>
-        <Text> textInComponent </Text>
         <MapView
-       provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+       provider={PROVIDER_GOOGLE}
        style={styles.map}
-       //customMapStyle={DarkMode}
+      //  customMapStyle={DarkMode}
        region={{
-         latitude: 28.535558,
-         longitude: 77.364949,
+         latitude:Number(lat),
+         longitude: Number(lon),
          latitudeDelta: 0.015,
          longitudeDelta: 0.0121,
        }}
        >
         <Marker 
           coordinate={{
-            latitude: 28.535558,
-            longitude: 77.364949,
+            latitude:Number(lat),
+            longitude: Number(lon),
           }}
         >
           <Callout>
