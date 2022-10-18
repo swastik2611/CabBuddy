@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet,TouchableOpacity, Text, View,Image, ImageBackgroundComponent, ImageBackgroundBase, ImageBackground } from 'react-native';
+import { StyleSheet,TouchableOpacity, Text, View,TextInput } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Map } from './Map';
+import { Tomtom } from './Tomtom';
 
 export const Request=()=> { 
   return (
@@ -11,7 +12,7 @@ export const Request=()=> {
       <View style={{flex:1}}>
       <View style={styles.top}>
       <View style={styles.imgctr}>
-        <Map/>
+        <Tomtom/>
         <View style={{marginTop:20,marginLeft:5,zIndex:1}}>
           <Ionicons name="md-reorder-three-sharp" size={50} color="#00323D" />
         </View>
@@ -19,11 +20,11 @@ export const Request=()=> {
       </View>
       <View style={styles.bottom}>
         <View style={{marginVertical:50}}>
-        <View style={styles.align}>
-          <Text style={{flex:0.1,}}>
+         <View style={styles.align}>
+          <Text style={{flex:0.1}}>
             <Octicons name="dot-fill" size={22} color="green" />
           </Text>
-          <Text style={{flex:1,fontSize:16}}>Source</Text>
+          <TextInput style={{flex:1,fontSize:16}} placeholder="Source"/>
           <Text style={styles.location}>
           <AntDesign name="downcircleo" size={24} color="black" />
           </Text>
@@ -32,7 +33,7 @@ export const Request=()=> {
           <Text style={{flex:0.1}}>
             <Octicons name="dot-fill" size={22} color="red" />
           </Text>
-          <Text style={{flex:1,fontSize:16}}>Destination</Text>
+          <TextInput style={{flex:1,fontSize:16}} placeholder="Destination"/>
           <Text style={styles.location}>
           <AntDesign name="downcircleo" size={24} color="black" />
           </Text>

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet,TouchableOpacity, Text,TextInput, View,Image, ScrollView } from 'react-native';
+import { StyleSheet,TouchableOpacity, Text,TextInput, View,Image, ScrollView,KeyboardAvoidingView } from 'react-native';
  export const Signup =()=>{
     return(
         <>
