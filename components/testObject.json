@@ -1,0 +1,69 @@
+{
+    "type": "POI",
+    "id": "356009037281060",
+    "score": 3.9929542542,
+    "info": "search:ta:356009037281060-IN",
+    "poi": {
+        "name": "Jaypee Institute of Information Technolodgy Gate 1",
+        "categorySet": [
+            {
+                "id": 7377
+            }
+        ],
+        "categories": [
+            "college/university"
+        ],
+        "classifications": [
+            {
+                "code": "COLLEGE_UNIVERSITY",
+                "names": [
+                    {
+                        "nameLocale": "en-US",
+                        "name": "college/university"
+                    }
+                ]
+            }
+        ]
+    },
+    "address": {
+        "streetName": "Noida Greater Noida Expressway Road, Jaypee Hospital, Sector 128",
+        "municipalitySubdivision": "Sector 128",
+        "municipality": "Noida",
+        "countrySecondarySubdivision": "Noida",
+        "countrySubdivision": "Uttar Pradesh",
+        "postalCode": "201304",
+        "countryCode": "IN",
+        "country": "India",
+        "countryCodeISO3": "IND",
+        "freeformAddress": "Noida Greater Noida Expressway Road, Jaypee Hospital, Sector 128, Sector 128, Noida 201304, Uttar Pradesh",
+        "localName": "Noida"
+    },
+    "position": {
+        "lat": 28.51867,
+        "lon": 77.36475
+    },
+    "viewport": {
+        "topLeftPoint": {
+            "lat": 28.52044,
+            "lon": 77.36448
+        },
+        "btmRightPoint": {
+            "lat": 28.51812,
+            "lon": 77.36593
+        }
+    },
+    "entryPoints": [
+        {
+            "type": "main",
+            "position": {
+                "lat": 28.51865,
+                "lon": 77.36462
+            }
+        }
+    ],
+    "dataSources": {
+        "geometry": {
+            "id": "c8906fdc-54d2-4ee4-b21f-e33d395763fe"
+        }
+    }
+}
