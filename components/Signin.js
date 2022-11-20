@@ -1,7 +1,16 @@
-import {StyleSheet,Text,TextInput, TouchableOpacity, View,Image,Input} from 'react-native';
+import {StyleSheet,Text,TextInput, TouchableOpacity, View,Image,Input,Alert} from 'react-native';
 import React from 'react';
 
 export const Signin = () => {
+  const[iemail,setIemail]=React.useState('');
+  const[ipassword,setIpassword]=React.useState('');
+  const submit=()=>{
+    console.log("submit");
+    console.log(iemail,ipassword);
+    if(iemail==""||ipassword==""){
+      return Alert.alert("Complete all fields");
+    }
+  }
   return (
     <>
     <View style={styles.contain}>
@@ -17,16 +26,19 @@ export const Signin = () => {
                 <View style={{flex:0.70}}>
                     <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Email</Text>
-                    <TextInput style={styles.txtinp}
+                    <TextInput style={styles.txtinp} value={iemail}
+                    onChangeText={(actualData)=>setIemail(actualData)}
                     />
                     </View>
                     <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Password</Text>
-                    <TextInput style={styles.txtinp}/>
+                    <TextInput style={styles.txtinp} value={ipassword}
+                    secureTextEntry={true}
+                    onChangeText={(actualData)=>setIpassword(actualData)}/>
                     </View>
                     <View style={styles.submit}>
-                    <TouchableOpacity style={styles.submitbtn}>
-                        <Text style={styles.submittxt}>Sign Up</Text>
+                    <TouchableOpacity style={styles.submitbtn} onPress={()=>submit()}>
+                        <Text style={styles.submittxt}>Sign In</Text>
                     </TouchableOpacity>
                 </View>
                 </View>
