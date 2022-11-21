@@ -1,5 +1,5 @@
 import {StyleSheet,Text,TextInput, TouchableOpacity, View,Image,Input,Alert,KeyboardAvoidingView} from 'react-native';
-import React from 'react';
+import React,{useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const Signin = ({navigation}) => {
@@ -38,6 +38,8 @@ export const Signin = ({navigation}) => {
       catch(e){
         console.log("Error",e);
          Alert.alert("Invalid Credentials");
+         setEmail("");
+         setPassword("");
       }
   }
     )

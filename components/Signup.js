@@ -31,6 +31,7 @@ import { StyleSheet,TouchableOpacity,useState, Text,TextInput, View,Image, Scrol
     })
     .then(res=>res.json())
     .then(data=>{
+      try{
       console.log(data.message);
       if(data.message==="User already exists"){
         // Alert.alert("User already exists");
@@ -40,14 +41,21 @@ import { StyleSheet,TouchableOpacity,useState, Text,TextInput, View,Image, Scrol
         Alert.alert("User created successfully");
         navigation.navigate("Signin")
       }
-    })
+    }
+    catch(e){
+      console.log("Error",e);
+      Alert.alert("User already exists");
+    }})
     .catch(function(error) {
     // console.log('There has been a problem with your fetch operation: ' + error.message);
-  // ADD THIS THROW error
-  Alert.alert("User already exists");
-  //  navigation.navigate("Signup")
-   throw error;
-});
+    Alert.alert("User already exists");
+    setContact("");
+      setEmail("");
+      setPassword("");
+      setCpassword("");
+      setFname("");
+     setLname("");
+    });
   }
     return(
         <>
