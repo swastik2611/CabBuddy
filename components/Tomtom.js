@@ -130,12 +130,12 @@ export const Tomtom=()=> {
         tomtomOptions={{ key: "vHU6pZapwSCLHNgswp5XdDAJpdUkr0MG" }}
       />
 
-      {/* <WebView
+     {/* <WebView
         ref={(r) => (webRef = r)}
         onMessage={handleMapEvent}
         style={styles.map}
         originWhitelist={['*']}
-        source={{ html: mapTemplate }}
+        sourc e={{ html: mapTemplate }}
       /> */}
       <SelectMap setMapCenter={setMapCenter} webRef={webRef}/>
   

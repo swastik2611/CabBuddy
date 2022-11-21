@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet,TouchableOpacity,useState, Text,TextInput, View,Image, ScrollView,KeyboardAvoidingView, Alert } from 'react-native';
- export const Signup =()=>{
+ export const Signup =({navigation})=>{
   const[fname,setFname]=React.useState("");
   const[lname,setLname]=React.useState("");
   const[contact,setContact]=React.useState("+91");
@@ -15,7 +15,7 @@ import { StyleSheet,TouchableOpacity,useState, Text,TextInput, View,Image, Scrol
     if(password!=cpassword){
     return Alert.alert("Password does not match");
     }
-    console.log(fname,lname,contact,email,password,cpassword);
+     console.log(fname,lname,contact,email,password,cpassword);
     fetch("http://10.0.2.2:3000/signup",{
       "method":"POST",
     headers:{
@@ -31,9 +31,23 @@ import { StyleSheet,TouchableOpacity,useState, Text,TextInput, View,Image, Scrol
     })
     .then(res=>res.json())
     .then(data=>{
-      console.log(data);
-      Alert.alert(data.message);
+      console.log(data.message);
+      if(data.message==="User already exists"){
+        // Alert.alert("User already exists");
+      }
+      else
+      {
+        Alert.alert("User created successfully");
+        navigation.navigate("Signin")
+      }
     })
+    .catch(function(error) {
+    // console.log('There has been a problem with your fetch operation: ' + error.message);
+  // ADD THIS THROW error
+  Alert.alert("User already exists");
+  //  navigation.navigate("Signup")
+   throw error;
+});
   }
     return(
         <>

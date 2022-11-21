@@ -26,34 +26,34 @@ export default function App() {
         setLogged(false)
     }
   }, []);
-  
+
   const Stack = createNativeStackNavigator();
   return (
-    // <NavigationContainer style={styles.container}>
-    //   <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Homepage'>
-    //     <Stack.Screen name="Homepage" component={Homepage}/>
-    //     <Stack.Screen name="Signup" component={Signup}/>
-    //     <Stack.Screen name="Signin" component={Signin}/>
-    //     <Stack.Screen name="Request" component={Request}/>
-    //    <Stack.Screen name="Loading" component={Loading}/>
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-    <View style={styles.container}>
-    {/* //    <StatusBar style="auto" /> 
-       {/* <Homepage/> */}
-       {/* <Map/> */}
-       {/* <Signin/> */}
-       {/* <Signup/>  */}
-       <LoadingScreen/>
-       {/* <Request/> */}
-      {/* <Tomtom/> */}
-      {/* </View> */} 
-      </View>
+    <NavigationContainer style={styles.container}>
+      <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Homepage'>
+        <Stack.Screen name="Homepage" component={Homepage}/>
+        <Stack.Screen name="Signup" component={Signup}/>
+        <Stack.Screen name="Signin" component={Signin}/>
+        <Stack.Screen name="Request" component={Request}/>
+        <Stack.Screen name="LoadingScreen" component={LoadingScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+    // <View style={styles.container}>
+    // {/* //    <StatusBar style="auto" /> 
+    //    {/* <Homepage/> */}
+    //    {/* <Map/> */}
+    //    {/* <Signin/> */}
+    //    <Signup/> 
+    //    {/* <LoadingScreen/> */}
+    //    {/* <Request/> */}
+    //   {/* <Tomtom/> */}
+    //   {/* </View> */} 
+    //   </View>
 
   );
 }
 const styles = StyleSheet.create({
   container:{
   flex:1,
-  }
+  },
 });

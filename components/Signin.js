@@ -1,27 +1,49 @@
 import {StyleSheet,Text,TextInput, TouchableOpacity, View,Image,Input,Alert,KeyboardAvoidingView} from 'react-native';
 import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const Signin = () => {
+export const Signin = ({navigation}) => {
   const[email,setEmail]=React.useState('');
   const[password,setPassword]=React.useState('');
-  const submit= async()=>{
+  const submit= async(props)=>{
     console.log("submit");
     console.log(email,password);
     if(email==""||password==""){
       return Alert.alert("Complete all fields");
     }
-  //   fetch("http://10.0.2.2:3000/signin",{
-  //     "method":"POST",
-  //     headers:{
-  //       "Content-Type":"application/json"
-  //     },
-  //     body:JSON.stringify({
-  //       "email":email,
-  //       "password":password
-  //     })
-  //   })
-  //   .then(res=>res.json())
-  //   .then(async data=>{
+    fetch("http://10.0.2.2:3000/signin",{
+      "method":"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        "email":email,
+        "password":password
+      })
+    })
+    .then(res=>res.json())
+    .then(async data=>{
+      try{
+        await AsyncStorage.setItem('token',data.token);
+        console.log(data.token);
+        console.log(data.message);
+        if(data.message==="Invalid Credentials"){
+          Alert.alert("Invalid Credentials");
+        }
+        else{
+          Alert.alert("Login Successful");
+          navigation.navigate("Request")
+        }
+      }
+      catch(e){
+        console.log("Error",e);
+         Alert.alert("Invalid Credentials");
+      }
+  }
+    )
+    .catch(function(error) {
+    // console.log('There has been a problem with your fetch operation: ' + error.message); 
+    });
   }
   return (
     <>

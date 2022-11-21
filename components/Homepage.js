@@ -21,10 +21,14 @@ export const Homepage =({navigation})=>  {
         <Text style={styles.tag}>Find your Travel Buddies</Text>
       </View>
       <View style={styles.bottom}>
-        <TouchableOpacity style={styles.btns} onPress={this.onSigninPress}>
+        <TouchableOpacity style={styles.btns} onPress={onSigninPress}>
+        {/* onPress={()=>onSigninPress()} */}
+        {/* > */}
           <Text style={styles.btn}>Sign In</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.onSignupPress}>
+        <TouchableOpacity onPress={onSignupPress} style={styles.btns}>
+         {/* onPress={()=>onSignupPress()} */}
+        {/* > */}
           <Text style={styles.btn}>Sign Up</Text>
         </TouchableOpacity>
       </View>

@@ -1,16 +1,18 @@
-import React, { useEffect }  from "react";
-import { Button, TextInput, View, Text, ActivityIndicator,StyleSheet } from "react-native";
+import React, { useEffect, useState }  from "react";
+import { Button, TextInput, View, Text, ActivityIndicator,StyleSheet, Alert } from "react-native";
 //  import {AsyncStorage} from '@react-native-community/async-storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-export const LoadingScreen = () => {
+export const LoadingScreen = (props) => {
     useEffect(async() => {
         const token = await AsyncStorage.getItem('token');
         if(token){
-            
+            props.navigation.navigate("Request")
         }
         else{
-            setLogged(false)
+            Alert.alert("Invalid Credentials")
+            props.navigation.navigate("Signin")
         }
+        }, []);
 
   return (
     <>
@@ -20,7 +22,7 @@ export const LoadingScreen = () => {
     </View>
     </>
   );
-}
+};
 
 const styles = StyleSheet.create({
     loading: {
