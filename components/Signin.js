@@ -1,19 +1,31 @@
-import {StyleSheet,Text,TextInput, TouchableOpacity, View,Image,Input,Alert} from 'react-native';
+import {StyleSheet,Text,TextInput, TouchableOpacity, View,Image,Input,Alert,KeyboardAvoidingView} from 'react-native';
 import React from 'react';
 
 export const Signin = () => {
-  const[iemail,setIemail]=React.useState('');
-  const[ipassword,setIpassword]=React.useState('');
-  const submit=()=>{
+  const[email,setEmail]=React.useState('');
+  const[password,setPassword]=React.useState('');
+  const submit= async()=>{
     console.log("submit");
-    console.log(iemail,ipassword);
-    if(iemail==""||ipassword==""){
+    console.log(email,password);
+    if(email==""||password==""){
       return Alert.alert("Complete all fields");
     }
+  //   fetch("http://10.0.2.2:3000/signin",{
+  //     "method":"POST",
+  //     headers:{
+  //       "Content-Type":"application/json"
+  //     },
+  //     body:JSON.stringify({
+  //       "email":email,
+  //       "password":password
+  //     })
+  //   })
+  //   .then(res=>res.json())
+  //   .then(async data=>{
   }
   return (
     <>
-    <View style={styles.contain}>
+    <KeyboardAvoidingView style={styles.contain}>
         <View style={styles.imgctr}>
                 <Image source={require('../assets/signin/signlogo.png')} style={styles.loginImage}></Image>
         </View>
@@ -26,15 +38,15 @@ export const Signin = () => {
                 <View style={{flex:0.70}}>
                     <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Email</Text>
-                    <TextInput style={styles.txtinp} value={iemail}
-                    onChangeText={(actualData)=>setIemail(actualData)}
+                    <TextInput style={styles.txtinp} value={email}
+                    onChangeText={(actualData)=>setEmail(actualData)}
                     />
                     </View>
                     <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Password</Text>
-                    <TextInput style={styles.txtinp} value={ipassword}
+                    <TextInput style={styles.txtinp} value={password}
                     secureTextEntry={true}
-                    onChangeText={(actualData)=>setIpassword(actualData)}/>
+                    onChangeText={(actualData)=>setPassword(actualData)}/>
                     </View>
                     <View style={styles.submit}>
                     <TouchableOpacity style={styles.submitbtn} onPress={()=>submit()}>
@@ -43,7 +55,7 @@ export const Signin = () => {
                 </View>
                 </View>
             </View>   
-    </View>
+    </KeyboardAvoidingView>
     </>
   );
 };

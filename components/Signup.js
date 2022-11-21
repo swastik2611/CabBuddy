@@ -15,10 +15,29 @@ import { StyleSheet,TouchableOpacity,useState, Text,TextInput, View,Image, Scrol
     if(password!=cpassword){
     return Alert.alert("Password does not match");
     }
+    console.log(fname,lname,contact,email,password,cpassword);
+    fetch("http://10.0.2.2:3000/signup",{
+      "method":"POST",
+    headers:{
+      "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        "fname":fname,
+        "lname":lname,
+        "contact":contact,
+        "email":email,
+        "password":password,
+      })
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data);
+      Alert.alert(data.message);
+    })
   }
     return(
         <>
-        <View style={styles.contain}>
+        <KeyboardAvoidingView style={styles.contain}>
             <View style={styles.imgctr}>
                 <Image source={require('../assets/signup/signup.png')} style={styles.img}></Image>
             </View>
@@ -77,7 +96,7 @@ import { StyleSheet,TouchableOpacity,useState, Text,TextInput, View,Image, Scrol
                 </View>
                 
             </ScrollView>
-        </View>
+        </KeyboardAvoidingView>
         </>
         
     )
