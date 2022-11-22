@@ -49,7 +49,7 @@ import { StyleSheet,TouchableOpacity,useState, Text,TextInput, View,Image, Scrol
     .catch(function(error) {
     // console.log('There has been a problem with your fetch operation: ' + error.message);
     Alert.alert("User already exists");
-    setContact("");
+    setContact("+91");
       setEmail("");
       setPassword("");
       setCpassword("");
@@ -92,7 +92,8 @@ import { StyleSheet,TouchableOpacity,useState, Text,TextInput, View,Image, Scrol
                     <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Email</Text>
                     <TextInput style={styles.txtinp}
-                    placeholder="xyz@mail.jiit.ac.in" value={email}
+                    placeholder="xyz@mail.jiit.ac.in" 
+                    value={email} keyboardType='email-address'
                     onChangeText={(actualData)=>setEmail(actualData)}
                     />
                     </View>

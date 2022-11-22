@@ -19,7 +19,7 @@ export const Request=()=> {
       <View style={styles.imgctr}>
         <Tomtom/>
         <View style={{marginTop:20,marginLeft:5,zIndex:1}}>
-          <Ionicons name="md-reorder-three-sharp" size={50} color="#00323D" />
+          {/* <Ionicons name="md-reorder-three-sharp" size={50} color="#00323D" /> */}
         </View>
       </View>
       </View>

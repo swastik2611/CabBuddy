@@ -6,11 +6,11 @@ export const LoadingScreen = (props) => {
     useEffect(async() => {
         const token = await AsyncStorage.getItem('token');
         if(token){
-            props.navigation.navigate("Request")
+            props.navigation.replace("Request")
         }
         else{
             Alert.alert("Invalid Credentials")
-            props.navigation.navigate("Signin")
+            props.navigation.replace("Signin")
         }
         }, []);
 
