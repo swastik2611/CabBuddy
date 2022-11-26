@@ -1,7 +1,6 @@
 import {StyleSheet,Text,TextInput, TouchableOpacity, View,Image,Input,Alert,KeyboardAvoidingView} from 'react-native';
 import React,{useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 export const Signin = ({navigation}) => {
   const[email,setEmail]=React.useState('');
   const[password,setPassword]=React.useState('');
@@ -62,7 +61,8 @@ export const Signin = ({navigation}) => {
                 <View style={{flex:0.70}}>
                     <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Email</Text>
-                    <TextInput style={styles.txtinp} value={email}
+                    <TextInput style={styles.txtinp} 
+                    value={email} keyboardType='email-address'
                     onChangeText={(actualData)=>setEmail(actualData)}
                     />
                     </View>

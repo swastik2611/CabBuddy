@@ -3,6 +3,8 @@ import { StyleSheet,Text, View } from 'react-native'
 import {Callout, enableLatestRenderer, Marker} from 'react-native-maps';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
+// import Geolocation from '@react-native-community/geolocation';
+// Geolocation.setRNConfiguration(config);
 const DarkMode =
 [
   {
@@ -167,8 +169,12 @@ const DarkMode =
 ]
 enableLatestRenderer();
 export const Map=()=>  {
-  const [lat,setLat]=useState()
-  const [lon,setLon]=useState()
+  const [lat,setLat]=useState(28.535670729456665)
+  const [lon,setLon]=useState(77.36472530226712)
+  //  Geolocation.getCurrentPosition((data)=>{
+  //    setLat(data.coords.latitude);
+  //    setLon(data.coords.longitude);
+  //  }) 
     Geolocation.getCurrentPosition(data=>{
       setLat(data.coords.latitude)
       setLon(data.coords.longitude)

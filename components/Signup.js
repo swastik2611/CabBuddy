@@ -85,7 +85,7 @@ import { StyleSheet,TouchableOpacity,useState, Text,TextInput, View,Image, Scrol
                     <View style={styles.inpbox}>
                     <Text style={styles.fieldname}>Contact</Text>
                     <TextInput style={styles.txtinp} maxLength={13}
-                     value={contact} keyboardType = 'numeric'
+                     value={contact} keyboardType = 'phone-pad'
                     onChangeText={(actualData)=>setContact(actualData)}
                     />
                     </View>

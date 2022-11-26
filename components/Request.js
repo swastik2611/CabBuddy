@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet,TouchableOpacity, Text,ScrollView, View,TextInput } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Map } from './Map';
+import { NavigationContainer } from "@react-navigation/native";
 import { Tomtom } from './Tomtom';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { services } from '@tomtom-international/web-sdk-services';
 //import SearchBox from '@tomtom-international/web-sdk-plugin-searchbox';
 import searchOptions from './searchOptions';
 import AutoCompleteInput from "react-native-tomtom-autocomplete";
 
-
-export const Request=()=> { 
+export const Request=({navigation})=> {
+  onInvitePress=()=>{
+    navigation.navigate("Seat")
+  };
+  onRequestPress=()=>{
+    navigation.navigate("Availability")
+  };
+const [email,setEmail]=React.useState('');
+  useEffect(async() => {
+    const token = await AsyncStorage.getItem('token');
+    fetch("http://10.0.2.2:3000/",{
+      headers:new Headers({
+        Authorization:"Bearer "+token
+      })
+    }).then(res=>res.json())
+    .then(data=>{console.log(data)
+      setEmail(data.email)
+})
+  }, [])
   return (
     <>
       <View style={{flex:1}}>
@@ -24,7 +43,7 @@ export const Request=()=> {
       </View>
       </View>
       <View style={styles.bottom}>
-        <View style={{marginVertical:50}}>
+        <View style={{marginVertical:20}}>
          {/* <View style={styles.align}> */}
           {/* <Text style={{flex:0.1}}>
             <Octicons name="dot-fill" size={22} color="green" />
@@ -73,17 +92,23 @@ export const Request=()=> {
           </Text>
         </View> */}
         </View>
+        <View>
+           <View >
+          <Text style={styles.email}> {email}</Text>    
+
+        </View>
          <View style={styles.btnctr}>
-         <TouchableOpacity style={styles.btn}>
+         <TouchableOpacity style={styles.btn} onPress={onRequestPress}>
           <Text style={styles.btntxt}>
             Request
           </Text>
         </TouchableOpacity>
-         <TouchableOpacity style={styles.btn}>
+         <TouchableOpacity style={styles.btn} onPress={onInvitePress}>
           <Text style={styles.btntxt}>
             Invite
           </Text>
         </TouchableOpacity>
+      </View>
       </View>
       </View>
       </View>
@@ -125,7 +150,14 @@ const styles = StyleSheet.create({
   btnctr:{
     flexDirection:'row',
     justifyContent:'space-between',
-    marginHorizontal:50,
+    marginHorizontal:20,
+    // marginTop:-20,
+  },
+  email:{
+    fontSize:20,
+    color:'white',
+    textAlign:'center',
+    marginBottom:5,
   },
   btn:{
     paddingVertical:"2.5%",
