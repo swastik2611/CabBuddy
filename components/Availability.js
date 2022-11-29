@@ -1,18 +1,13 @@
 import axios from 'axios';
 import React, { useEffect,useState} from 'react'
-import { View,Text,StyleSheet } from 'react-native';
+import { ScrollView,View,Text,StyleSheet } from 'react-native';
 
 export const Availability= ()=> {
-//   const[from,setFrom]=React.useState("")
+  //  const[from,setFrom]=React.useState("")
 //   const [to, setTo] = React.useState("");
 //   const [contact, setContact] = React.useState("");
-//   const [vacant, setVacant] = React.useState(0); 
+const [count, setCount] = React.useState(1); 
 const [data,setData]=React.useState("abcd");
-const [d,setD]=React.useState();
-const [from,setFrom]=React.useState();
-const [to,setTo]=React.useState();
-const [contact,setContact]=React.useState();
-const [vacant,setVacant]=React.useState();
     console.log("show")
     useEffect(() => {
         console.log("in function1");
@@ -27,7 +22,6 @@ const [vacant,setVacant]=React.useState();
                 console.log("in function3");
                 console.log(res.data);
                  setData(res.data);
-                setD(res.data.from);
             } 
             catch (error) 
             {
@@ -40,33 +34,56 @@ const [vacant,setVacant]=React.useState();
     }, []);
     const list=()=>{
       return data.map((item)=>{
-        return(
-          <View>
-            <Text>{item.from}</Text>
-            <Text>{item.to}</Text>
-            <Text>{item.contact}</Text>
-            <Text>{item.vacant}</Text>
-          </View>
-        )
+        return (
+          <ScrollView>
+            <View style={styles.group}>
+              <Text style={styles.head}>Vacancy</Text>
+              <Text style={styles.field}>From: {item.from}</Text>
+              <Text style={styles.field}>To: {item.to}</Text>
+              <Text style={styles.field}>Contact: {item.contact}</Text>
+              <Text style={styles.field}>Vacant Seats: {item.vacant}</Text>
+            </View>
+          </ScrollView>
+        );
       })
     }
     return (
       <>
-        <View style={styles.body}>
+        <ScrollView contentContainerStyle={styles.body}>
           {list()}
-        </View>
+        </ScrollView>
       </>
     );}
 const styles = StyleSheet.create({
-  body:{
-    display:'flex',
-    flexDirection:'row',
-    height: '100%',
-    paddingLeft: 50,
-  alignItems:"center",
-  }
+  body: {
+    backgroundColor: "#E6D0EA",
+    paddingTop: 50,
+  },
+  group: {
+    backgroundColor: "#A4BE7B",
+    margin: 25,
+    borderRadius: 30,
+    padding: 20,
+    borderWidth: 2,
+    borderColor: "black",
+  },
+  field: {
+    fontSize: 15,
+    marginVertical: 10,
+    marginHorizontal: "15%",
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "black",
+    backgroundColor: "#fff",
+    padding: 10,
+  },
+  head: {
+    fontSize: 18,
+    marginVertical: 1,
+    justifyContent: "center",
+    textAlign: "center",
+  },
 });
-
 // {
 //   /* <Text>
 //             {JSON.stringify(data[0].contact)}{}

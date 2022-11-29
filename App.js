@@ -42,7 +42,7 @@ export default function App() {
         <Stack.Screen name='Seat' component={Seat}/>
         <Stack.Screen name='Availability' component={Availability}/>
       </Stack.Navigator>
-      </NavigationContainer>
+       </NavigationContainer>
     //  <View style={styles.container}>
     //    {/* <StatusBar style="auto" />  */}
     //    {/* <Homepage/>  */}
@@ -52,7 +52,7 @@ export default function App() {
     //    {/* <LoadingScreen/> */}
     //    {/* <Request/>  */}
     //    {/* <Seat/> */}
-    //    {/* <Availability/> */}
+        // <Availability/> 
     //    {/* <Calculator/> */}
     //    {/* <Tomtom/>  */}
     //   </View>  
