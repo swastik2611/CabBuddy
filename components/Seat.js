@@ -17,7 +17,7 @@ export const Seat = ({navigation}) => {
     const [vacant, setVacant] = React.useState(0);
     const [sourceCoordinates, setSourceCoordinates] = React.useState("");
     const [destinationCoordinates, setDestinationCoordinates] = React.useState("");
-    const submit=()=>{
+    const submit=({navigation})=>{
         console.log('Submit')
         console.log("value", vacant,from,to,contact)
         if(from==""||to==""||contact=="")
@@ -50,7 +50,7 @@ export const Seat = ({navigation}) => {
       else
       {
         Alert.alert("Request posted");
-        navigation.navigate("Homepage")
+        navigation.navigate("Calculator")
       }
     }
     catch(e){
@@ -138,6 +138,8 @@ const styles = StyleSheet.create({
   },
   txtinp: {
     backgroundColor: "white",
+    borderColor:'black',
+    borderWidth:1,
     height: 40,
     borderRadius: 20,
     paddingVertical: "1%",

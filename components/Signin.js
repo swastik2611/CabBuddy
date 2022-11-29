@@ -84,66 +84,68 @@ export const Signin = ({navigation}) => {
   );
 };
 const styles = StyleSheet.create({
-    contain: {
+  contain: {
     flex: 1,
-    backgroundColor: '#E6D0EA',
+    backgroundColor: "#E6D0EA",
   },
-  imgctr:{
-    flex:0.5,
-    marginTop:30,
+  imgctr: {
+    flex: 0.5,
+    marginTop: 30,
   },
-  loginImage:{
-    flex:1,
-    resizeMode:'cover',
-    width:null,
-    height:null,
-    },
-  middle:{
-    marginTop:'10%',
-    flex:0.1,
+  loginImage: {
+    flex: 1,
+    resizeMode: "cover",
+    width: null,
+    height: null,
   },
-  heading:{
-    marginTop:'2%',
-    alignSelf:"center",
+  middle: {
+    marginTop: "10%",
+    flex: 0.1,
   },
-  headtxt:{
-    fontSize:40,
-    fontWeight:'bold',
+  heading: {
+    marginTop: "2%",
+    alignSelf: "center",
   },
-  bottom:{
-    flex:0.5,
+  headtxt: {
+    fontSize: 40,
+    fontWeight: "bold",
   },
-  inpbox:{
-   marginHorizontal:'8%',
-   marginVertical:'2%',
+  bottom: {
+    flex: 0.5,
   },
-  fieldname:{
-    fontSize:20,
-    fontWeight:'600',
-    marginVertical:'0.5%',
+  inpbox: {
+    marginHorizontal: "8%",
+    marginVertical: "2%",
   },
-  txtinp:{
-    backgroundColor:'white',
-    height:40,
-    borderRadius:20,
-    paddingVertical:'1%',
-    paddingLeft:'5%',
-    fontSize:20,
+  fieldname: {
+    fontSize: 20,
+    fontWeight: "600",
+    marginVertical: "0.5%",
   },
-  submit:{
-    alignItems:'center',
-    justifyContent:"center",
-    marginTop:'15%',
+  txtinp: {
+    backgroundColor: "white",
+    borderColor: "black",
+    borderWidth: 1,
+    height: 40,
+    borderRadius: 20,
+    paddingVertical: "1%",
+    paddingLeft: "5%",
+    fontSize: 20,
   },
-  submitbtn:{
-    backgroundColor:'black',
-    borderRadius:40,
+  submit: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: "15%",
   },
-  submittxt:{  
-    justifyContent:"center",
-    paddingVertical:'3.5%',
-    paddingHorizontal:'7%',
-    fontSize:23,
-    color:'white',
+  submitbtn: {
+    backgroundColor: "black",
+    borderRadius: 40,
+  },
+  submittxt: {
+    justifyContent: "center",
+    paddingVertical: "3.5%",
+    paddingHorizontal: "7%",
+    fontSize: 23,
+    color: "white",
   },
 });

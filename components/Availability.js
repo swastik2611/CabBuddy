@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   head: {
+    fontWeight: "bold",
     fontSize: 18,
     marginVertical: 1,
     justifyContent: "center",

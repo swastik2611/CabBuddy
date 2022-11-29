@@ -125,67 +125,69 @@ import { StyleSheet,TouchableOpacity,useState, Text,TextInput, View,Image, Scrol
     )
  };
  const styles = StyleSheet.create({
-  contain: {
-    flex: 1,
-    backgroundColor: '#E6D0EA',
-  },
-  imgctr:{
-    flex:0.45,
-    marginTop:30,
-  },
-  middle:{
-    flex:0.1,
-  },
-  img:{
-    flex:1,
-    resizeMode:'cover',
-    width:null,
-    height:null,
-  },
-  heading:{
-    marginTop:'2%',
-    alignSelf:"center",
-  },
-  headtxt:{
-    fontSize:32,
-  },
-  bottom:{
-    flex:0.45,
-  },
-  inpbox:{
-   marginHorizontal:'8%',
-   marginVertical:'2%',
-  },
-  fieldname:{
-    fontSize:20,
-    fontWeight:'600',
-    marginVertical:'0.5%',
-  },
-  txtinp:{
-    backgroundColor:'white',
-    height:40,
-    borderRadius:20,
-    paddingVertical:'1%',
-    paddingLeft:'5%',
-    fontSize:20,
-  },
-  txtnm:{
-    flex:0.45,
-  },
-  submit:{
-    alignItems:'center',
-    justifyContent:"center",
-    flex:0.30,
-  },
-  submitbtn:{
-    backgroundColor:'black',
-    borderRadius:40,
-  },
-  submittxt:{  
-    justifyContent:"center",
-    paddingVertical:'2.5%',
-    paddingHorizontal:'10%',
-    fontSize:20,
-    color:'white',
-  },
-});
+   contain: {
+     flex: 1,
+     backgroundColor: "#E6D0EA",
+   },
+   imgctr: {
+     flex: 0.45,
+     marginTop: 30,
+   },
+   middle: {
+     flex: 0.1,
+   },
+   img: {
+     flex: 1,
+     resizeMode: "cover",
+     width: null,
+     height: null,
+   },
+   heading: {
+     marginTop: "2%",
+     alignSelf: "center",
+   },
+   headtxt: {
+     fontSize: 32,
+   },
+   bottom: {
+     flex: 0.45,
+   },
+   inpbox: {
+     marginHorizontal: "8%",
+     marginVertical: "2%",
+   },
+   fieldname: {
+     fontSize: 20,
+     fontWeight: "600",
+     marginVertical: "0.5%",
+   },
+   txtinp: {
+     backgroundColor: "white",
+     borderColor: "black",
+     borderWidth: 1,
+     height: 40,
+     borderRadius: 20,
+     paddingVertical: "1%",
+     paddingLeft: "5%",
+     fontSize: 20,
+   },
+   txtnm: {
+     flex: 0.45,
+   },
+   submit: {
+     alignItems: "center",
+     justifyContent: "center",
+     flex: 0.3,
+   },
+   submitbtn: {
+     backgroundColor: "black",
+     borderRadius: 40,
+   },
+   submittxt: {
+     justifyContent: "center",
+     paddingVertical: "2.5%",
+     paddingHorizontal: "10%",
+     fontSize: 20,
+     color: "white",
+   },
+ });

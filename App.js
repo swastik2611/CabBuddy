@@ -33,16 +33,20 @@ export default function App() {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer style={styles.container}>
-      <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Homepage'>
-        <Stack.Screen name="Homepage" component={Homepage}/>
-        <Stack.Screen name="Signup" component={Signup}/>
-        <Stack.Screen name="Signin" component={Signin}/>
-        <Stack.Screen name="Request" component={Request}/>
-        <Stack.Screen name="LoadingScreen" component={LoadingScreen}/>
-        <Stack.Screen name='Seat' component={Seat}/>
-        <Stack.Screen name='Availability' component={Availability}/>
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="Homepage"
+      >
+        <Stack.Screen name="Homepage" component={Homepage} />
+        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="Signin" component={Signin} />
+        <Stack.Screen name="Request" component={Request} />
+        <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
+        <Stack.Screen name="Seat" component={Seat} />
+        <Stack.Screen name="Availability" component={Availability} />
+        <Stack.Screen name="Calculator" component={Calculator} />
       </Stack.Navigator>
-       </NavigationContainer>
+    </NavigationContainer>
     //  <View style={styles.container}>
     //    {/* <StatusBar style="auto" />  */}
     //    {/* <Homepage/>  */}
@@ -52,10 +56,10 @@ export default function App() {
     //    {/* <LoadingScreen/> */}
     //    {/* <Request/>  */}
     //    {/* <Seat/> */}
-        // <Availability/> 
+    // <Availability/>
     //    {/* <Calculator/> */}
     //    {/* <Tomtom/>  */}
-    //   </View>  
+    //   </View>
   );
 }
 const styles = StyleSheet.create({
