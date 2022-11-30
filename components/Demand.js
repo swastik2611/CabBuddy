@@ -9,68 +9,67 @@ import {
   Alert,
 } from "react-native";
 
-export const Seat = ({navigation}) => {
-    const[from,setFrom]=React.useState("")
-    const [to, setTo] = React.useState("");
-    const [contact, setContact] = React.useState("");
-    const [email, setEmail] = React.useState("");
-    const [vacant, setVacant] = React.useState(0);
-    const [sourceCoordinates, setSourceCoordinates] = React.useState("");
-    const [destinationCoordinates, setDestinationCoordinates] = React.useState("");
-    const submit=()=>{
-        console.log('Submit')
-        console.log("value", vacant,from,to,contact)
-        if(from==""||to==""||contact=="")
-        {
-            return Alert.alert("Complete all fields")
-        }
-        if(vacant<1||vacant>6)
-        {
-            return Alert.alert("Invalid Seat Count")
-        }
-        fetch("http://10.0.2.2:3000/journey",{
-      "method":"POST",
-    headers:{
-      "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-        "from":from,
-        "to":to,
-        "contact":contact,
-        "vacant":vacant,
-      })
-    })
-    .then(res=>res.json())
-    .then(data=>{
-      try{
-      console.log(data.message);
-      if(data.message==="User already exists"){
-        Alert.alert("User already exists");
-      }
-      else
-      {
-        Alert.alert("Request posted");
-        navigation.navigate("Calculator")
-      }
+export const Demand = ({ navigation }) => {
+  const [from, setFrom] = React.useState("");
+  const [to, setTo] = React.useState("");
+  const [contact, setContact] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [vacant, setVacant] = React.useState(0);
+  const [sourceCoordinates, setSourceCoordinates] = React.useState("");
+  const [destinationCoordinates, setDestinationCoordinates] =
+  React.useState("");
+  const submit = () => {
+    console.log("Submit");
+    console.log("value", vacant, from, to, contact);
+    if (from == "" || to == "" || contact == "") {
+      return Alert.alert("Complete all fields");
     }
-    catch(e){
-      console.log("Error",e);
-      Alert.alert("");
-    }})
-    .catch(function(error) {
-     console.log('There has been a problem with your fetch operation: ' + error.message);
-    Alert.alert("User already exists2");
-    // setFrom("")
-    // setTo("")
-    // setContact("")
-    // setVacant("")
-    });
-}
+    if (vacant < 1 || vacant > 6) {
+      return Alert.alert("Invalid Seat Count");
+    }
+    fetch("http://10.0.2.2:3000/journey", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: from,
+        to: to,
+        contact: contact,
+        vacant: vacant,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        try {
+          console.log(data.message);
+          if (data.message === "User already exists") {
+            Alert.alert("User already exists");
+          } else {
+            Alert.alert("Request posted");
+            navigation.navigate("Availability");
+          }
+        } catch (e) {
+          console.log("Error", e);
+          Alert.alert("");
+        }
+      })
+      .catch(function (error) {
+        console.log(
+          "There has been a problem with your fetch operation: " + error.message
+        );
+        Alert.alert("User already exists2");
+        // setFrom("")
+        // setTo("")
+        // setContact("")
+        // setVacant("")
+      });
+  };
   return (
     <>
       <View style={styles.body}>
         <View style={styles.top}>
-          <Text style={styles.heading}>Vacant Seat Information</Text>
+          <Text style={styles.heading}>Request Seats</Text>
         </View>
         <View style={styles.middle}>
           <View style={styles.inpbox}>
@@ -96,7 +95,7 @@ export const Seat = ({navigation}) => {
             />
           </View>
           <View style={styles.inpbox}>
-            <Text style={styles.fieldname}>Vacant Seats</Text>
+            <Text style={styles.fieldname}>Required Seats</Text>
             <TextInput
               style={styles.txtinp}
               keyboardType="phone-pad"
@@ -135,12 +134,12 @@ const styles = StyleSheet.create({
   },
   bottom: {
     flex: 0.3,
-    justifyContent:"center",
+    justifyContent: "center",
   },
   txtinp: {
     backgroundColor: "white",
-    borderColor:'black',
-    borderWidth:1,
+    borderColor: "black",
+    borderWidth: 1,
     height: 40,
     borderRadius: 20,
     paddingVertical: "1%",

@@ -16,6 +16,7 @@ import { Calculator } from './components/Calculator';
 import { LoadingScreen } from './components/LoadingScreen';
 import {Seat} from './components/Seat';
 import { Availability } from './components/Availability';
+import { Demand } from './components/Demand';
 // import {User} from './models/User';
  
 export default function App() { 
@@ -35,8 +36,7 @@ export default function App() {
     <NavigationContainer style={styles.container}>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="Homepage"
-      >
+        initialRouteName="Homepage">
         <Stack.Screen name="Homepage" component={Homepage} />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Signin" component={Signin} />
@@ -45,18 +45,20 @@ export default function App() {
         <Stack.Screen name="Seat" component={Seat} />
         <Stack.Screen name="Availability" component={Availability} />
         <Stack.Screen name="Calculator" component={Calculator} />
+        <Stack.Screen name="Demand" component={Demand} />
       </Stack.Navigator>
     </NavigationContainer>
     //  <View style={styles.container}>
     //    {/* <StatusBar style="auto" />  */}
     //    {/* <Homepage/>  */}
     //    {/* <Map/> */}
-    //    <Signin/>
+    //    {/* <Signin/> */}
     //    {/* <Signup/>  */}
     //    {/* <LoadingScreen/> */}
     //    {/* <Request/>  */}
     //    {/* <Seat/> */}
-    // <Availability/>
+    //    {/* <Availability/> */}
+    //    {/* <Demand/> */}
     //    {/* <Calculator/> */}
     //    {/* <Tomtom/>  */}
     //   </View>

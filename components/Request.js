@@ -17,7 +17,7 @@ export const Request=({navigation})=> {
     navigation.navigate("Seat")
   };
   onRequestPress=()=>{
-    navigation.navigate("Availability")
+    navigation.navigate("Demand")
   };
 const [email,setEmail]=React.useState('');
   useEffect(async() => {
@@ -118,7 +118,7 @@ const [email,setEmail]=React.useState('');
 
 const styles = StyleSheet.create({
   bottom:{
-   flex:0.20,
+   flex:0.15,
    backgroundColor:'#00323D',
    justifyContent: "flex-start",
   },
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     bordercolor:'black',
   },
   top:{
-  flex:0.80,
+  flex:0.85,
   },
   imgctr:{
     flex:1,
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     marginHorizontal:20,
-    // marginTop:-20,
+     marginTop:-20,
   },
   email:{
     fontSize:20,

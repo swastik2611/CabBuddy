@@ -17,8 +17,7 @@ const [data,setData]=React.useState("abcd");
             try 
             {
                 // const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-                const res = await axios.get("http:192.168.1.10:3000/availability"
-                );
+                const res = await axios.get("http:192.168.1.10:3000/availability");
                 console.log("in function3");
                 console.log(res.data);
                  setData(res.data);
@@ -50,6 +49,7 @@ const [data,setData]=React.useState("abcd");
     return (
       <>
         <ScrollView contentContainerStyle={styles.body}>
+          <Text style={styles.top}>Vacanct Seat Information</Text>
           {list()}
         </ScrollView>
       </>
@@ -66,6 +66,13 @@ const styles = StyleSheet.create({
     padding: 20,
     borderWidth: 2,
     borderColor: "black",
+  },
+  top: {
+    fontWeight: "bold",
+    fontSize: 24,
+    marginVertical: 1,
+    justifyContent: "center",
+    textAlign: "center",
   },
   field: {
     fontSize: 15,
