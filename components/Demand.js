@@ -27,7 +27,7 @@ export const Demand = ({ navigation }) => {
     if (vacant < 1 || vacant > 6) {
       return Alert.alert("Invalid Seat Count");
     }
-    fetch("http://10.0.2.2:3000/journey", {
+    fetch("http://10.0.2.2:3000/availability", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export const Demand = ({ navigation }) => {
         vacant: vacant,
       }),
     })
-      .then((res) => res.json())
+      .then((res) => res.text())
       .then((data) => {
         try {
           console.log(data.message);

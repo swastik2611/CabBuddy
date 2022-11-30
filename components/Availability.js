@@ -17,7 +17,7 @@ const [data,setData]=React.useState("abcd");
             try 
             {
                 // const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-                const res = await axios.get("http:192.168.1.10:3000/availability");
+                const res = await axios.get("http:10.0.2.2:3000/availability");
                 console.log("in function3");
                 console.log(res.data);
                  setData(res.data);

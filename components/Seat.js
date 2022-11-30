@@ -40,7 +40,7 @@ export const Seat = ({navigation}) => {
         "vacant":vacant,
       })
     })
-    .then(res=>res.json())
+    .then(res=>res.text())
     .then(data=>{
       try{
       console.log(data.message);
@@ -49,7 +49,7 @@ export const Seat = ({navigation}) => {
       }
       else
       {
-        Alert.alert("Request posted");
+        Alert.alert("Invite posted");
         navigation.navigate("Calculator")
       }
     }
@@ -70,7 +70,7 @@ export const Seat = ({navigation}) => {
     <>
       <View style={styles.body}>
         <View style={styles.top}>
-          <Text style={styles.heading}>Vacant Seat Information</Text>
+          <Text style={styles.heading}>Invite Information</Text>
         </View>
         <View style={styles.middle}>
           <View style={styles.inpbox}>
