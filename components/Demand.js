@@ -27,7 +27,7 @@ export const Demand = ({ navigation }) => {
     if (vacant < 1 || vacant > 6) {
       return Alert.alert("Invalid Seat Count");
     }
-    fetch("http://10.0.2.2:3000/availability", {
+    fetch("http://10.0.2.2:3000/demand", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
