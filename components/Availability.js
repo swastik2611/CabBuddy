@@ -36,7 +36,7 @@ const [data,setData]=React.useState("abcd");
       for(let i=0;i<data.length;i++)
       {
         itemDisplay.push(
-          <ScrollView>
+          <View>
             <View style={styles.group}>
               <Text style={styles.head}>Vacancy</Text>
               <Text style={styles.field}>From: {data[i].from}</Text>
@@ -44,7 +44,7 @@ const [data,setData]=React.useState("abcd");
               <Text style={styles.field}>Contact: {data[i].contact}</Text>
               <Text style={styles.field}>Vacant Seats: {data[i].vacant}</Text>
             </View>
-          </ScrollView>
+          </View>
         )
         }
     }
@@ -58,11 +58,11 @@ const [data,setData]=React.useState("abcd");
     return (
       <>
         <ScrollView contentContainerStyle={styles.body}>
+        {/* <View style={styles.body}> */}
           <Text style={styles.top}>Vacanct Seat Information</Text>
-          {
-          list()}
-          {display()
-          }
+          {list()}
+          {display()}
+        {/* </View> */}
         </ScrollView>
       </>
     );}
@@ -70,6 +70,8 @@ const styles = StyleSheet.create({
   body: {
     backgroundColor: "#E6D0EA",
     paddingTop: 50,
+    // overflowY: "scroll",
+     minHeight:'100%',
   },
   group: {
     backgroundColor: "#A4BE7B",

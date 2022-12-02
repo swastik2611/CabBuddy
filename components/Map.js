@@ -175,10 +175,10 @@ export const Map=()=>  {
   //    setLat(data.coords.latitude);
   //    setLon(data.coords.longitude);
   //  }) 
-    Geolocation.getCurrentPosition(data=>{
-      setLat(data.coords.latitude)
-      setLon(data.coords.longitude)
-  })
+  //   Geolocation.getCurrentPosition(data=>{
+  //     setLat(data.coords.latitude)
+  //     setLon(data.coords.longitude)
+  // })
 //28.51913338908017, 77.36525008259567 128
 //28.535670729456665, 77.36472530226712 pg
      return (
