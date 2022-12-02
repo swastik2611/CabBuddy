@@ -31,26 +31,38 @@ const [data,setData]=React.useState("abcd");
         }
         fetchData();
     }, []);
+    var itemDisplay=[];
     const list=()=>{
-      return data.map((item)=>{
-        return (
+      for(let i=0;i<data.length;i++)
+      {
+        itemDisplay.push(
           <ScrollView>
             <View style={styles.group}>
               <Text style={styles.head}>Vacancy</Text>
-              <Text style={styles.field}>From: {item.from}</Text>
-              <Text style={styles.field}>To: {item.to}</Text>
-              <Text style={styles.field}>Contact: {item.contact}</Text>
-              <Text style={styles.field}>Vacant Seats: {item.vacant}</Text>
+              <Text style={styles.field}>From: {data[i].from}</Text>
+              <Text style={styles.field}>To: {data[i].to}</Text>
+              <Text style={styles.field}>Contact: {data[i].contact}</Text>
+              <Text style={styles.field}>Vacant Seats: {data[i].vacant}</Text>
             </View>
           </ScrollView>
-        );
-      })
+        )
+        }
+    }
+    const display=()=>{
+      return(
+        itemDisplay.map((item)=>{
+          return item;
+        })
+      );
     }
     return (
       <>
         <ScrollView contentContainerStyle={styles.body}>
           <Text style={styles.top}>Vacanct Seat Information</Text>
-          {list()}
+          {
+          list()}
+          {display()
+          }
         </ScrollView>
       </>
     );}

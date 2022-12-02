@@ -33,35 +33,35 @@ export default function App() {
 
   const Stack = createNativeStackNavigator();
   return (
-    <NavigationContainer style={styles.container}>
-      <Stack.Navigator
-        screenOptions={{ headerShown: false }}
-        initialRouteName="Homepage">
-        <Stack.Screen name="Homepage" component={Homepage} />
-        <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Signin" component={Signin} />
-        <Stack.Screen name="Request" component={Request} />
-        <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
-        <Stack.Screen name="Seat" component={Seat} />
-        <Stack.Screen name="Availability" component={Availability} />
-        <Stack.Screen name="Calculator" component={Calculator} />
-        <Stack.Screen name="Demand" component={Demand} />
-      </Stack.Navigator>
-    </NavigationContainer>
-    //  <View style={styles.container}>
-    //    {/* <StatusBar style="auto" />  */}
-    //    {/* <Homepage/>  */}
-    //    {/* <Map/> */}
-    //    {/* <Signin/> */}
-    //    {/* <Signup/>  */}
-    //    {/* <LoadingScreen/> */}
-    //    {/* <Request/>  */}
-    //    {/* <Seat/> */}
-    //    {/* <Availability/> */}
-    //    {/* <Demand/> */}
-    //    {/* <Calculator/> */}
-    //    {/* <Tomtom/>  */}
-    //   </View>
+    // <NavigationContainer style={styles.container}>
+    //   <Stack.Navigator
+    //     screenOptions={{ headerShown: false }}
+    //     initialRouteName="Homepage">
+    //     <Stack.Screen name="Homepage" component={Homepage} />
+    //     <Stack.Screen name="Signup" component={Signup} />
+    //     <Stack.Screen name="Signin" component={Signin} />
+    //     <Stack.Screen name="Request" component={Request} />
+    //     <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
+    //     <Stack.Screen name="Seat" component={Seat} />
+    //     <Stack.Screen name="Availability" component={Availability} />
+    //     <Stack.Screen name="Calculator" component={Calculator} />
+    //     <Stack.Screen name="Demand" component={Demand} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+     <View style={styles.container}>
+       {/* <StatusBar style="auto" />  */}
+       {/* <Homepage/>  */}
+       <Map/>
+       {/* <Signin/> */}
+       {/* <Signup/>  */}
+       {/* <LoadingScreen/> */}
+       {/* <Request/>  */}
+       {/* <Seat/> */}
+       {/* <Availability/> */}
+       {/* <Demand/> */}
+       {/* <Calculator/> */}
+       {/* <Tomtom/>  */}
+      </View>
   );
 }
 const styles = StyleSheet.create({
