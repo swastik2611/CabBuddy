@@ -88,7 +88,9 @@ export const Seat = ({navigation}) => {
             />
           </View>
           <View style={styles.inpbox}>
-            <Text style={styles.fieldname}>Contact</Text>
+            <Text style={styles.fieldname} maxLength={13}>
+              Contact
+            </Text>
             <TextInput
               style={styles.txtinp}
               keyboardType="phone-pad"
@@ -97,6 +99,14 @@ export const Seat = ({navigation}) => {
           </View>
           <View style={styles.inpbox}>
             <Text style={styles.fieldname}>Vacant Seats</Text>
+            <TextInput
+              style={styles.txtinp}
+              keyboardType="phone-pad"
+              onChangeText={(actualData) => setVacant(actualData)}
+            />
+          </View>
+          <View style={styles.inpbox}>
+            <Text style={styles.fieldname}>Total Fare</Text>
             <TextInput
               style={styles.txtinp}
               keyboardType="phone-pad"
@@ -135,6 +145,7 @@ const styles = StyleSheet.create({
   },
   bottom: {
     flex: 0.3,
+    paddingTop:100,
     justifyContent:"center",
   },
   txtinp: {

@@ -2,8 +2,10 @@ import { Image, SafeAreaView, ScrollView, StyleSheet, Text, View, Alert } from '
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {Ionicons, MaterialIcons} from '@expo/vector-icons';
+import { FontDisplay } from 'expo-font';
 export const Profiles= ()=> {
-  const [data,setData]=React.useState();
+  const [data,setData]=React.useState([]);
+  const [fname, setFname] = React.useState();
    useEffect(async() => {
      console.log("in  prof function1");
      async function fetchData() {
@@ -12,8 +14,11 @@ export const Profiles= ()=> {
          // const res = await axios.get("https://jsonplaceholder.typicode.com/users");
          const res = await axios.get("http:10.0.2.2:3000/getprofile");
          console.log("in function3");
-         console.log(res.data);
+         console.log("data is ",res.data);
+         console.log("fname is",res.data[0].fname);
          setData(res.data);
+         setFname(res.data.fname);
+         console.log(res.data.fname);
        } catch (error) {
          console.log(error);
        }
@@ -21,50 +26,52 @@ export const Profiles= ()=> {
        // console.log("data is ",request.data);
      }
      fetchData();
-   }, []);
+   }, []);     
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={{ alignSelf: "center", marginTop: 60 }}>
-          <View style={styles.profileimg}>
-            <Image
-              source={require("../assets/profile.jpg")}
-              style={styles.image}
-              resizeMode="center"
-            ></Image>
+    <>
+      <SafeAreaView style={styles.container}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={{ alignSelf: "center", marginTop: 60 }}>
+            <View style={styles.profileimg}>
+              <Image
+                source={require("../assets/profile.jpg")}
+                style={styles.image}
+                resizeMode="center"
+              ></Image>
+            </View>
+            <View style={styles.dm}>
+              <MaterialIcons
+                name="chat"
+                size={18}
+                color="#DFD8C8"
+              ></MaterialIcons>
+            </View>
+            <View style={styles.active}></View>
           </View>
-          <View style={styles.dm}>
-            <MaterialIcons
-              name="chat"
-              size={18}
-              color="#DFD8C8"
-            ></MaterialIcons>
+          <View style={styles.info}>
+            <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>
+              Profile
+            </Text>
           </View>
-          <View style={styles.active}></View>
-        </View>
-        <View style={styles.info}>
-          <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>
-            Profile Name
-          </Text>
-        </View>
-        {/* <View style={styles.status}>
-          <Text style={[styles.text, { fontSize: 22 }]}>
-            First Name: {data[0].fname}
-          </Text>
-          <Text style={[styles.text, { fontSize: 22 }]}>
-            Last Name: {data[0].lname}
-          </Text>
-          <Text style={[styles.text, { fontSize: 22 }]}>
-            Email ID: {data[0].email}
-          </Text>
-          <Text style={[styles.text, { fontSize: 22 }]}>
-            Phone Number: {data[0].contact}
-          </Text>
-        </View> */}
-      </ScrollView>
-    </SafeAreaView>
+          <View style={styles.status}>
+            <Text style={[styles.text, { fontSize: 22 }]}>
+              First Name:
+            </Text>
+            <Text style={[styles.text, { fontSize: 22 }]}>
+              Last Name: 
+            </Text>
+            <Text style={[styles.text, { fontSize: 22 }]}>
+              Email ID: 
+            </Text>
+            <Text style={[styles.text, { fontSize: 22 }]}>
+              Phone Number: 
+            </Text>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
