@@ -43,9 +43,10 @@ const [data,setData]=React.useState("abcd");
               <Text style={styles.field}>To: {data[i].to}</Text>
               <Text style={styles.field}>Contact: {data[i].contact}</Text>
               <Text style={styles.field}>Vacant Seats: {data[i].vacant}</Text>
+              <Text style={styles.field}>Total Fare: {data[i].fare}</Text>
             </View>
           </View>
-        )
+        );
         }
     }
     const display=()=>{
@@ -59,7 +60,7 @@ const [data,setData]=React.useState("abcd");
       <>
         <ScrollView contentContainerStyle={styles.body}>
         {/* <View style={styles.body}> */}
-          <Text style={styles.top}>Vacanct Seat Information</Text>
+          <Text style={styles.top}>Vacant Seat Information</Text>
           {list()}
           {display()}
         {/* </View> */}

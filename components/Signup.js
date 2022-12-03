@@ -39,7 +39,7 @@ import { StyleSheet,TouchableOpacity,useState, Text,TextInput, View,Image, Scrol
       else
       {
         Alert.alert("User created successfully");
-        navigation.navigate("Signin")
+        navigation.navigate("Homepage")
       }
     }
     catch(e){

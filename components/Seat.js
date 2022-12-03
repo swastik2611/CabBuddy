@@ -15,6 +15,7 @@ export const Seat = ({navigation}) => {
     const [contact, setContact] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [vacant, setVacant] = React.useState(0);
+    const [fare,setFare]=React.useState(0)
     const [sourceCoordinates, setSourceCoordinates] = React.useState("");
     const [destinationCoordinates, setDestinationCoordinates] = React.useState("");
     const submit=()=>{
@@ -38,6 +39,7 @@ export const Seat = ({navigation}) => {
         "to":to,
         "contact":contact,
         "vacant":vacant,
+        "fare":fare
       })
     })
     .then(res=>res.text())
@@ -110,7 +112,7 @@ export const Seat = ({navigation}) => {
             <TextInput
               style={styles.txtinp}
               keyboardType="phone-pad"
-              onChangeText={(actualData) => setVacant(actualData)}
+              onChangeText={(actualData) => setFare(actualData)}
             />
           </View>
         </View>
