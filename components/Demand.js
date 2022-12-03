@@ -7,7 +7,7 @@ import {
   View,
   TextInput,
   Alert,
-} from "react-native";
+} from  "react-native";
 
 export const Demand = ({ navigation }) => {
   const [from, setFrom] = React.useState("");
