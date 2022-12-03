@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet,TouchableOpacity, Text,ScrollView, View,TextInput } from 'react-native';
+import { StyleSheet,TouchableOpacity, Text,ScrollView, View,TextInput,Alert } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,6 +9,7 @@ import { Tomtom } from './Tomtom';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { services } from '@tomtom-international/web-sdk-services';
 //import SearchBox from '@tomtom-international/web-sdk-plugin-searchbox';
+import { Feather } from "@expo/vector-icons";
 import searchOptions from './searchOptions';
 import AutoCompleteInput from "react-native-tomtom-autocomplete";
 
@@ -18,6 +19,43 @@ export const Request=({navigation})=> {
   };
   onRequestPress=()=>{
     navigation.navigate("Demand")
+  };
+  onViewPress=()=>{
+    console.log("View Pressed")
+    fetch("http://10.0.2.2:3000/profile", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+       email:email,
+      }),
+    })
+      .then((res) => res.text())
+      .then((data) => {
+        try {
+          console.log(data.message);
+          if (data.message === "User already exists") {
+            Alert.alert("User already exists");
+          } else {
+            console.log("Request posted");
+            navigation.navigate("Profiles");
+          }
+        } catch (e) {
+          console.log("Error", e);
+          Alert.alert("");
+        }
+      })
+      .catch(function (error) {
+        console.log(
+          "There has been a problem with your fetch operation: " + error.message
+        );
+        Alert.alert("User already exists2");
+        // setFrom("")
+        // setTo("")
+        // setContact("")
+        // setVacant("")
+      });
   };
 const [email,setEmail]=React.useState('');
   useEffect(async() => {
@@ -33,22 +71,23 @@ const [email,setEmail]=React.useState('');
   }, [])
   return (
     <>
-      <View style={{flex:1}}>
-      <View style={styles.top}>
-      <View style={styles.imgctr}>
-        <Tomtom/>
-        <View style={{marginTop:20,marginLeft:5,zIndex:1}}>
-          {/* <Ionicons name="md-reorder-three-sharp" size={50} color="#00323D" /> */}
+      <View style={{ flex: 1 }}>
+        <View style={styles.top}>
+          <View style={styles.imgctr}>
+            <Tomtom />
+            {/* <Map/> */}
+            <View style={{ marginTop: 20, marginLeft: 5, zIndex: 1 }}>
+              {/* <Ionicons name="md-reorder-three-sharp" size={50} color="#00323D" /> */}
+            </View>
+          </View>
         </View>
-      </View>
-      </View>
-      <View style={styles.bottom}>
-        <View style={{marginVertical:20}}>
-         {/* <View style={styles.align}> */}
-          {/* <Text style={{flex:0.1}}>
+        <View style={styles.bottom}>
+          <View style={{ marginVertical: 20 }}>
+            {/* <View style={styles.align}> */}
+            {/* <Text style={{flex:0.1}}>
             <Octicons name="dot-fill" size={22} color="green" />
           </Text> */}
-          {/* <Text style={{flex:1,fontSize:16}} placeholder="Source"> */}
+            {/* <Text style={{flex:1,fontSize:16}} placeholder="Source"> */}
             {/* <AutoCompleteInput style={styles.searchContainer}
               inputProps={{
                   text: 'Search',
@@ -77,12 +116,12 @@ const [email,setEmail]=React.useState('');
               // bottomDivider
               tomtomOptions={{ key: "vHU6pZapwSCLHNgswp5XdDAJpdUkr0MG" }}
             /> */}
-{/* </Text> */}
-          {/* <Text style={styles.location}>
+            {/* </Text> */}
+            {/* <Text style={styles.location}>
           <AntDesign name="downcircleo" size={24} color="black" />
           </Text>
         </View> */}
-        {/* <View style={styles.align}>
+            {/* <View style={styles.align}>
           <Text style={{flex:0.1}}>
             <Octicons name="dot-fill" size={22} color="red" />
           </Text>
@@ -91,26 +130,27 @@ const [email,setEmail]=React.useState('');
           <AntDesign name="downcircleo" size={24} color="black" />
           </Text>
         </View> */}
-        </View>
-        <View>
-           <View >
+          </View>
+          <View>
+            {/* <View >
           <Text style={styles.email}> {email}</Text>    
 
+        </View> */}
+            <View style={styles.btnctr}>
+              <TouchableOpacity style={styles.btn} onPress={onRequestPress}>
+                <Text style={styles.btntxt}>Request</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.btn} onPress={onInvitePress}>
+                <Text style={styles.btntxt}>Invite</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.ibtn}>
+              <TouchableOpacity onPress={onViewPress}>
+            <Feather name="info" size={40} color="white" />
+            </TouchableOpacity>
+            </View>
+          </View>
         </View>
-         <View style={styles.btnctr}>
-         <TouchableOpacity style={styles.btn} onPress={onRequestPress}>
-          <Text style={styles.btntxt}>
-            Request
-          </Text>
-        </TouchableOpacity>
-         <TouchableOpacity style={styles.btn} onPress={onInvitePress}>
-          <Text style={styles.btntxt}>
-            Invite
-          </Text>
-        </TouchableOpacity>
-      </View>
-      </View>
-      </View>
       </View>
     </>
   );
@@ -118,8 +158,10 @@ const [email,setEmail]=React.useState('');
 
 const styles = StyleSheet.create({
   bottom:{
-   flex:0.15,
+   flex:0.2,
+   marginTop:-20,
    backgroundColor:'#00323D',
+   borderRadiusTopLeft:80,
    justifyContent: "flex-start",
   },
   align:{
@@ -151,7 +193,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     marginHorizontal:20,
-     marginTop:-20,
+    marginTop:0,
   },
   email:{
     fontSize:20,
@@ -171,6 +213,12 @@ const styles = StyleSheet.create({
      textAlign:'center',
      fontWeight:'bold',
      fontSize:24,
+  },
+  ibtn:{
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    padding:15,
   },
   searchContainer:{
     // flex:1,
