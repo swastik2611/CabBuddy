@@ -106,7 +106,7 @@ export const Demand = ({ navigation }) => {
         <View style={styles.bottom}>
           <View style={styles.submit}>
             <TouchableOpacity style={styles.submitbtn} onPress={() => submit()}>
-              <Text style={styles.submittxt}>Send</Text>
+              <Text style={styles.submittxt}>Request</Text>
             </TouchableOpacity>
           </View>
         </View>
